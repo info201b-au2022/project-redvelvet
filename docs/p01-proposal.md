@@ -2,6 +2,9 @@
 
 **TODO**: Edit this file. Your project proposal goes here.
 
+Data Set:
+https://www.kaggle.com/datasets/ayessa/salary-prediction-classification
+
 For what to do, see the [`../instructions/`](../instructions/) directory, specifically: 
 
 * [Design Brief](../instructions/project-design-brief.pdf)
