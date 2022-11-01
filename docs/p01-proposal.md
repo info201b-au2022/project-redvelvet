@@ -1,4 +1,4 @@
-# Title of your Project: Project Proposal
+# Income and Relation to Social Categories: Project Proposal
 
  > **Authors:** Manav Agarwal (manavag@uw.edu), Fred Li (yl427@uw.edu), Molly Banks (mbanks2@uw.edu), Caitlin Hunt (chunt170@uw.edu)
 
