@@ -46,14 +46,10 @@ We all know that US is a diverse country, there are lots of different people com
 
 The data was extracted on May 1st, 1996 from the 1994 Census database by Ronny Kohavi and Barry Becker with the means to determine whether a person makes over $50,000 per year. They worked with Silicon Graphics in Data Mining and Visualization to collect this data from the Census and contribute a table of the information. Overall, the data feels valid and credible because it came straight from a Census, which has a tract record of reliability. It should be noted that on the transfer there could have been some human errors and could translate to false information, though this is unlikely. Once collected, it was eventually made available on Kaggle, where it was donated and uploaded onto the site. It is important to remember that after upload to the open source website, this data can easily be used by an individual person or company that has malicious intent, like an insurance company who can then refuse to give loans to those with correlation with less than $50k a year income. Further, the dataset touches on many inequality intersectionalities, having many columns that cover many varying topics emphasizes them. Having a column for race, education, and salary in of itself allows for there to be opportunities to look at possible correlations and relationships between these categories. Our research questions mainly center around aspects of people that can influence the salary they earn. The table offers multiple different categories to dive into aspects of people that affect their overall pay. All of the possible categories include but are not limited to: age, working class, education, marital status, occupation, relationship, race, and sex. The goal of the research is to find correlations between a multitude of important aspects that make up a person when it comes to their salary. In this way, as many variables that make up a person will be analyzed, of course there will still be confounding variables that impact the possible salary an individual can make. These confounding variables include the environment of their upbringing, the location of their work, and, possibly the biggest one of them all, this data is from 1994. A lot has happened in the almost 30 year time span since the data was collected and might not reflect the society impacts of today, but it will give a fantastic look back from 30 years ago and be able to show us where we came from so that we can see where we're going next.
 
-Title
-Rows
-Columns
-URL
-Salary Prediction Classification
-48842
-14
-Becker, Barry. “Salary Prediction Classification.” Kaggle, 18 Apr. 2022, https://www.kaggle.com/datasets/ayessa/salary-prediction-classification.
+|Title|URL|Rows|Columns|
+|-----------------------------| -------------- |-----------------------------| -------------- |
+|Salary Prediction Classification| Becker, B. (2022, April 18). Salary Prediction Classification. Kaggle. Retrieved October 31, 2022, from https://www.kaggle.com/datasets/ayessa/salary-prediction-classification.   |48842|14|
+
 
 ## Limitations
 Just looking at the dataset, a few challenges come up with our dataset. The dataset contains salary and work details of mostly private employees from the United States. While there are more outliers in the work class, there are rarely any in the native country column. This type of data results in a general skew in the outcomes. Because of the lack of diversity, we are not able to find out much about people who don’t work private jobs, nor do we find out much about people who are not originally from the US.
