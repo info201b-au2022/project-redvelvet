@@ -14,9 +14,9 @@ salaries_edu <- salaries_raw %>%
 
 # Renders plot of salary by level of education
 job_edu_plot <- ggplot(data = salaries_edu) +
-  geom_violin(mapping = aes(x = salary, y = Level.of.Education, fill = salary), position = "fill", trim = FALSE) +
+  geom_violin(mapping = aes(x = salary, y = Level.of.Education, fill = salary)) +
   scale_fill_manual(values = c("#49A4B9", "#2C5985")) +
-  scale_x_discrete(labels=c('Less than 50k', 'Greater than 50k')) +
+  scale_x_discrete("Annual Salary", labels=c('Less than 50k', 'Greater than 50k')) +
   labs(title = "Education Impacts on Career Outcomes")
 
 
