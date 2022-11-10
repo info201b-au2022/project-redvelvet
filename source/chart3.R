@@ -9,7 +9,7 @@ salaries_raw <- read.csv("https://raw.githubusercontent.com/info201b-au2022/proj
 # renders plot of education by hours per week by salary type
 edu_salary_plot <- ggplot(data = salaries_raw) +
   geom_smooth(mapping = aes(x = hours.per.week, y = education.num, color = salary), se = FALSE) +
-  scale_color_brewer(palette = "Dark2")
+  scale_color_discrete(name = "Annual Salary", labels = c("Greater than 50K", "Less than 50K"))
 
 # saves plot as png for output file
 

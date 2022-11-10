@@ -48,7 +48,7 @@ summary(cars)
 ```{r}
 source("../source/chart3.R")
 ```
-Education, Salary and Hours Chart:
+Education, Salary and Hours:
 
 ```{r education, echo=FALSE}
 plot(edu_salary_plot)
