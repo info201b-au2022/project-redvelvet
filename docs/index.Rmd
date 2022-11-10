@@ -45,6 +45,12 @@ summary(cars)
 
 ## Including Plots
 
+Education, Salary and Hours Chart:
+
+```{r education, echo=FALSE}
+plot(edu_salary_plot)
+```
+
 You can also embed plots, for example:
 
 ```{r pressure, echo=FALSE}
