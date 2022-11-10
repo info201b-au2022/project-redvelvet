@@ -45,6 +45,9 @@ summary(cars)
 
 ## Including Plots
 
+```{r}
+source("../source/chart3.R")
+```
 Education, Salary and Hours Chart:
 
 ```{r education, echo=FALSE}
