@@ -14,8 +14,7 @@ knitr::opts_chunk$set(echo = TRUE)
 source("../source/chart3.R")
 ```
 
-## Education Impacts on Career Outcomes
-
+## Education and Occupation 
 ```{r education, echo=FALSE, message=FALSE, warning=FALSE}
 plot(job_edu_plot)
 ```
