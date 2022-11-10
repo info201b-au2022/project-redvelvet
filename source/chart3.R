@@ -6,10 +6,22 @@ library(dplyr)
 salaries_raw <- read.csv("https://raw.githubusercontent.com/info201b-au2022/project-redvelvet/main/data/salary.csv", stringsAsFactors = FALSE)
 
 
-# renders plot of education by hours per week by salary type
-edu_salary_plot <- ggplot(data = salaries_raw) +
-  geom_smooth(mapping = aes(x = hours.per.week, y = education.num, color = salary), se = FALSE) +
-  scale_color_discrete(name = "Annual Salary", labels = c("Greater than 50K", "Less than 50K"))
+
+# Renders data frame with relevant features and new names for clarity
+salaries_edu <- salaries_raw %>%
+  rename(Level.of.Education = education.num) %>%
+  select(Level.of.Education, salary, education, sex)
+
+# Renders plot of salary by level of education
+job_edu_plot <- ggplot(data = salaries_edu) +
+  geom_violin(mapping = aes(x = salary, y = Level.of.Education, fill = salary), position = "fill", trim = FALSE) +
+  scale_fill_manual(values = c("#49A4B9", "#2C5985")) +
+  scale_x_discrete(labels=c('Less than 50k', 'Greater than 50k')) +
+  labs(title = "Education Impacts on Career Outcomes")
+
+
+  
+
 
 # saves plot as png for output file
 

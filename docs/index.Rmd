@@ -1,13 +1,28 @@
 ---
-title: "Your Project Title"
-author: "project team members"
-date: "1/22/2022"
+title: "Income and Relation to Social Categories"
+author: "Manav Agarwal, Fred Li, Caitlin Hunt, Molly Banks"
+date: "11/14/2022"
 output: html_document
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
+
+# Plots
+```{r message=TRUE, warning=FALSE}
+source("../source/chart3.R")
+```
+
+## Education Impacts on Career Outcomes
+
+```{r education, echo=FALSE, message=FALSE, warning=FALSE}
+plot(job_edu_plot)
+```
+
+This plot illuminates the impact of an individual's education level on their career outcomes. 
+
+
 
 ## What is this file for?
 
@@ -44,15 +59,6 @@ summary(cars)
 ```
 
 ## Including Plots
-
-```{r}
-source("../source/chart3.R")
-```
-Education, Salary and Hours:
-
-```{r education, echo=FALSE}
-plot(edu_salary_plot)
-```
 
 You can also embed plots, for example:
 
