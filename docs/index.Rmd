@@ -19,8 +19,7 @@ source("../source/chart3.R")
 plot(job_edu_plot)
 ```
 
-This plot illuminates the impact of an individual's education level on their career outcomes. 
-
+This plot offers helpful insights into the return on investment of post-secondary education and the impact of education on future outcomes. American post-secondary education is increasingly a luxury. While education and salary outcomes are often correlated, a college degree is not essential for success. Individuals considering a post-secondary degree should make informed decisions about their future. This visualization highlights the correlation between salary and education level, but also clarifies the limits of this correlation.  
 
 
 ## What is this file for?
