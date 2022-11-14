@@ -6,13 +6,17 @@ output: html_document
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(
+	echo = FALSE,
+	message = FALSE,
+	warning = FALSE
+)
 ```
-
-# Plots
-```{r message=TRUE, warning=FALSE}
+```{r message=FALSE, warning=FALSE}
 source("../source/chart3.R")
 ```
+# Plots
+
 
 ## Education and Occupation 
 ```{r education, echo=FALSE, message=FALSE, warning=FALSE}
