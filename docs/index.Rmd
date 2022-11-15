@@ -35,7 +35,7 @@ The table breaks down further where each category of individual fits on the sala
 ```{r age, echo=FALSE, message=FALSE, warning=FALSE}
 plot_age()
 ```
-
+This plot maps the trend between Age and Salary among the data set members. This provides important information by showing us what salary one could potentially expect at a specific age. Furthermore, it can show us how well a more well educated demographic (younger) is comparing to older generations, and how the economy is changing in today's day and age. This is even more important with start-ups, because younger people tend to be more involved in them.
 <<<<<<< HEAD
 ## Salary and Gender 
 ```{r age, echo=FALSE, message=FALSE, warning=FALSE}
