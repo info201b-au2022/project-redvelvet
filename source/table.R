@@ -25,9 +25,8 @@ get_table <- function() {
                               education == " Doctorate"),
       age.17_39 = sum(age >= 20 & age <= 39),
       age.40_90 = sum(age >= 40 & age <= 90),
-      us.origin = sum(native.country == " United-States"),
-      foreign.origin = sum(native.country != " United-States")
-    ) %>%
+      female = sum(sex == " Female"),
+      male = sum(sex == " Male")) %>%
     arrange(desc(salary))
   return(new_table)
 }
