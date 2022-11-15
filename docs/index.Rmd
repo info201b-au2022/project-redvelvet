@@ -44,6 +44,11 @@ The table breaks down further where each category of individual fits on the sala
 plot_age()
 ```
 
+## Salary and Gender 
+```{r age, echo=FALSE, message=FALSE, warning=FALSE}
+plot_sex()
+```
+
 ## Education and Occupation 
 ```{r education, echo=FALSE, message=FALSE, warning=FALSE}
 plot_edu()
