@@ -4,38 +4,30 @@ author: "Manav Agarwal, Fred Li, Caitlin Hunt, Molly Banks"
 date: "11/14/2022"
 output: html_document
 ---
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(
-	echo = FALSE,
-	message = FALSE,
-	warning = FALSE
-)
-```
-```{r message=FALSE, warning=FALSE}
-source("../source/chart1.R")
-```
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(
-	echo = FALSE,
-	message = FALSE,
-	warning = FALSE
+  echo = FALSE,
+  message = FALSE,
+  warning = FALSE
 )
 ```
 ```{r message=FALSE, warning=FALSE}
 source("../source/chart3.R")
 source("../source/summary.R")
 source("../source/table.R")
+source("../source/chart1.R")
+source("../source/chart2.R")
 ```
 # Dynamic Paragraph
-The origin of the data comes from Census information from those from the United States. In total there were `r get_total_participants()` participants and datapoints that detail each category that make up an identity were: `r colnames(salaries_raw)`. The three main intersections we were going to the look at is age, education level, and country of origin and their resulting salary level. The ages span from `r get_min_age()` years old to `r get_max_age()` years old, a diverse range of individuals. The education spans from `r get_min_education()` to `r get_max_education()`, thus representing every level of education imaginable. Countries also represent a wide variety of options as well. Overall, the data available is diverse and provides a population that gives insightful information on the complexities of salary and identity.
+The origin of the data comes from Census information from those from the United States. In total there were `r get_total_participants()` participants and datapoints that detail each category that make up an identity were: `r colnames(salaries_raw)`. The three main intersections we were going to the look at is age, education level, and country of origin and their resulting salary level. The ages span from `r get_min_age()` years old to `r get_max_age()` years old, a diverse range of individuals. The education spans from `r get_min_education()` to `r get_max_education()`, thus representing every level of education imaginable. Gender provides a unique perspective as well. Overall, the data available is diverse and provides a population that gives insightful information on the complexities of salary and identity.
 
 # Table
 ```{r, echo = FALSE}
 library(knitr)
 kable(get_table(), caption = "Salary vs Identity Table")
 ```
-The table breaks down further where each category of individual fits on the salary spectrum. It delves into the education, age and country of origin to be able to numerically represent the population. We decided to focus on the sum individuals in each category to provide a better visualization of the span of concentration throughout each category. It provides a closer look at the dispersion of the population, for example it shows that the level of education doesn't necessarily matter because the amount in either salary level are relatively similar. Then it also emphasizes that what potentially plays a bigger factor is the age and the country of origin; where the younger participants and those that were native to the United States had higher salaries than those not in these groups.
+The table breaks down further where each category of individual fits on the salary spectrum. It delves into the education, age and gender to be able to numerically represent the population. We decided to focus on the sum individuals in each category to provide a better visualization of the span of concentration throughout each category. It provides a closer look at the dispersion of the population, for example it emphasizes that what potentially plays a bigger factor is the age and gender; where the younger participants and those that male identifying had higher salaries than those not in these groups.
 
 # Plots
 
@@ -44,59 +36,17 @@ The table breaks down further where each category of individual fits on the sala
 plot_age()
 ```
 
+<<<<<<< HEAD
 ## Salary and Gender 
 ```{r age, echo=FALSE, message=FALSE, warning=FALSE}
 plot_sex()
 ```
 This chart shows the difference of gender that affect the salary. It is important to know the difference of salary between male and female, especially nowadays, people are seeking for equal rights between female and male, salary is one of those. But from the chart we could see that the percentages of females have salary below 50k is more than the percentage of males below 50k, and it is the same for salary over 50k.
+=======
+>>>>>>> ae9130d06343996f3b1cdaffd258df6638eacaeb
 ## Education and Occupation 
 ```{r education, echo=FALSE, message=FALSE, warning=FALSE}
 plot_edu()
 ```
 
 This plot offers helpful insights into the return on investment of post-secondary education and the impact of education on future outcomes. American post-secondary education is increasingly a luxury. While education and salary outcomes are often correlated, a college degree is not essential for success. Individuals considering a post-secondary degree should make informed decisions about their future. This visualization highlights the correlation between salary and education level, but also clarifies the limits of this correlation.  
-
-
-## What is this file for?
-
-* This file will eventually become your project report for **P02: Exploratory Data Analysis**. Specifically, you will write rmarkdown to report your exploratory data analysis.
-
-* Please see Canvas for more details.
-
-## ACCESSING THE /source DIRECTORY
-### Example 1: Source some code and run a function
-```{r}
-# Example 1: Note relative path, which can be read: Up one
-# directory(..), down into source (/source), and 
-# then "source" an R file (data_access.R)
-source("../source/data_access.R")
-data_access_test()
-```
-
-### Example 2: Initialize a variable and then use it
-```{r}
-# Example 1: This function was "sourced" above
-msg <- data_access_test(" Morgan!")
-```
-
-> `r msg` Hope you have a good day!! 
-
-## ABOUT THIS FILE: 
-
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
-
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
-
-```{r cars}
-summary(cars)
-```
-
-## Including Plots
-
-You can also embed plots, for example:
-
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
-
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
