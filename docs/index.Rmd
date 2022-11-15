@@ -14,7 +14,19 @@ knitr::opts_chunk$set(
 ```
 ```{r message=FALSE, warning=FALSE}
 source("../source/chart3.R")
+source("../source/summary.R")
+source("../source/table.R")
 ```
+# Dynamic Paragraph
+The origin of the data comes from Census information from those from the United States. In total there were `r get_total_participants()` participants and datapoints that detail each category that make up an identity were: `r colnames(salaries_raw)`. The three main intersections we were going to the look at is age, education level, and country of origin and their resulting salary level. The ages span from `r get_min_age()` years old to `r get_max_age()` years old, a diverse range of individuals. The education spans from `r get_min_education()` to `r get_max_education()`, thus representing every level of education imaginable. Countries also represent a wide variety of options as well. Overall, the data available is diverse and provides a population that gives insightful information on the complexities of salary and identity.
+
+# Table
+```{r, echo = FALSE}
+library(knitr)
+kable(get_table(), caption = "Salary vs Identity Table")
+```
+The table breaks down further where each category of individual fits on the salary spectrum. It delves into the education, age and country of origin to be able to numerically represent the population. We decided to focus on the sum individuals in each category to provide a better visualization of the span of concentration throughout each category. It provides a closer look at the dispersion of the population, for example it shows that the level of education doesn't necessarily matter because the amount in either salary level are relatively similar. Then it also emphasizes that what potentially plays a bigger factor is the age and the country of origin; where the younger participants and those that were native to the United States had higher salaries than those not in these groups.
+
 # Plots
 
 
