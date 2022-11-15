@@ -7,15 +7,17 @@ output: html_document
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(
-	echo = FALSE,
-	message = FALSE,
-	warning = FALSE
+  echo = FALSE,
+  message = FALSE,
+  warning = FALSE
 )
 ```
 ```{r message=FALSE, warning=FALSE}
 source("../source/chart3.R")
 source("../source/summary.R")
 source("../source/table.R")
+source("../source/chart1.R")
+source("../source/chart2.R")
 ```
 # Dynamic Paragraph
 The origin of the data comes from Census information from those from the United States. In total there were `r get_total_participants()` participants and datapoints that detail each category that make up an identity were: `r colnames(salaries_raw)`. The three main intersections we were going to the look at is age, education level, and country of origin and their resulting salary level. The ages span from `r get_min_age()` years old to `r get_max_age()` years old, a diverse range of individuals. The education spans from `r get_min_education()` to `r get_max_education()`, thus representing every level of education imaginable. Gender provides a unique perspective as well. Overall, the data available is diverse and provides a population that gives insightful information on the complexities of salary and identity.
@@ -40,5 +42,3 @@ plot_edu()
 ```
 
 This plot offers helpful insights into the return on investment of post-secondary education and the impact of education on future outcomes. American post-secondary education is increasingly a luxury. While education and salary outcomes are often correlated, a college degree is not essential for success. Individuals considering a post-secondary degree should make informed decisions about their future. This visualization highlights the correlation between salary and education level, but also clarifies the limits of this correlation.  
-
-
