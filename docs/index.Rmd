@@ -4,6 +4,16 @@ author: "Manav Agarwal, Fred Li, Caitlin Hunt, Molly Banks"
 date: "11/14/2022"
 output: html_document
 ---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+	echo = FALSE,
+	message = FALSE,
+	warning = FALSE
+)
+```
+```{r message=FALSE, warning=FALSE}
+source("../source/chart1.R")
+```
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(
@@ -29,6 +39,10 @@ The table breaks down further where each category of individual fits on the sala
 
 # Plots
 
+## Salary and Age 
+```{r age, echo=FALSE, message=FALSE, warning=FALSE}
+plot_age()
+```
 
 ## Education and Occupation 
 ```{r education, echo=FALSE, message=FALSE, warning=FALSE}

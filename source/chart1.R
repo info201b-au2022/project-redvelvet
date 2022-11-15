@@ -12,4 +12,6 @@ age_graph <- ggplot(data = salaries_age) +
   scale_x_discrete("Annual Salary", labels = c("Less than 50k", "Greater than 50k")) +
   scale_y_continuous(name = "Age Vs Salary")
 
-age_graph
+plot_age <- function(){
+  plot(age_graph)
+}
