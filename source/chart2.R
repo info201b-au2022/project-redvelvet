@@ -7,17 +7,17 @@ View(salary_and_gender)
 gender <- salary_and_gender$sex
 num_of_female <- sum(str_count(gender, " Female"))
 num_of_male <- sum(str_count(gender, " Male"))
-male <- filter(salary_and_gender, sex == " Male")
-female <- filter(salary_and_gender, sex == " Female")
+male_data <- filter(salary_and_gender, sex == " Male")
+female_data <- filter(salary_and_gender, sex == " Female")
 plot_labels <- labs(
   x = "",
   y = "",
   title = "Proportion of female's salary"
 )
 pie_chart_female <- function(female) {
-  chart <- ggplot(data = female) + 
+  chart <- ggplot(data = female_data) + 
     geom_bar(
-      mapping = aes(x = "", y = percent, fill = salary), 
+      mapping = aes(x = "", y = sex, fill = salary), 
       stat = "identity",
       width = 1
     ) + 
@@ -29,5 +29,5 @@ pie_chart_female <- function(female) {
   return(chart)
 }
 
-p1 <- pie_chart_female(female)
-p1
+plot_1 <- pie_chart_female(female)
+plot_1
