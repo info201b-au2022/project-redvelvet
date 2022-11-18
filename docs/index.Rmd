@@ -39,9 +39,12 @@ This plot maps the trend between Age and Salary among the data set members. This
 <<<<<<< HEAD
 ## Salary and Gender 
 ```{r age, echo=FALSE, message=FALSE, warning=FALSE}
-plot_1()
-plot_2()
+pie_chart_female()
 ```
+```{r age, echo=FALSE, message=FALSE, warning=FALSE}
+pie_chart_male()
+```
+
 This chart shows the difference of gender that affect the salary. It is important to know the difference of salary between male and female, especially nowadays, people are seeking for equal rights between female and male, salary is one of those. But from the chart we could see that the percentages of females have salary below 50k is more than the percentage of males below 50k, and it is the same for salary over 50k.
 =======
 >>>>>>> ae9130d06343996f3b1cdaffd258df6638eacaeb

@@ -29,5 +29,4 @@ pie_chart_female <- function(female) {
   return(chart)
 }
 
-plot_1 <- pie_chart_female(female)
-plot_1
+pie_chart_female()
