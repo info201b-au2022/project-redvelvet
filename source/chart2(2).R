@@ -12,9 +12,9 @@ female <- filter(salary_and_gender, sex == " Female")
 plot_labels <- labs(
   x = "",
   y = "",
-  title = "Proportion of female's salary"
+  title = "Proportion of male's salary"
 )
-pie_chart_female <- function(female) {
+pie_chart_male <- function(male) {
   chart <- ggplot(data = female) + 
     geom_bar(
       mapping = aes(x = "", y = percent, fill = salary), 
@@ -29,5 +29,5 @@ pie_chart_female <- function(female) {
   return(chart)
 }
 
-plot_female <- pie_chart_female(female)
-plot_female
+plot_male <- pie_chart_male(male)
+plot_male
