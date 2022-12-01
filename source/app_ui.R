@@ -13,35 +13,19 @@ ui <- navbarPage(
   title = "Income and Relation to Social Categories",
   position = "fixed-top",
 
-  # A simple header
-  header = list(
-    tags$style(type = "text/css", "body {padding-top: 70px;}"),
-    hr(),
-    HTML("... Project Header... "),
-    hr()
-  ),
-
-  # A simple footer
-  footer = list(
-    tags$style(type = "text/css", "body {padding-top: 70px;}"),
-    hr(),
-    HTML("... Project Footer ... "),
-    hr()
-  ),
 
   # The project introduction
-  tab_panel_intro,
+ # tab_panel_intro,
 
   # The three charts
-  chart1,
-  chart2,
-  chart3,
-  # age slider
-  age_input,
+ # chart1,
+ # chart2,
+  tab_chart3,
+
 
   # The project summary
-  tab_panel_summary,
+  # tab_panel_summary,
 
   # The project report
-  tab_panel_report
+  #tab_panel_report
 )

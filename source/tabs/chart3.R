@@ -2,6 +2,8 @@
 library(ggplot2)
 library(dplyr)
 
+source()
+
 # load raw data from CSV in data folder
 salaries_raw <- read.csv("https://raw.githubusercontent.com/info201b-au2022/project-redvelvet/main/data/salary.csv", stringsAsFactors = FALSE)
 
@@ -57,4 +59,23 @@ plotly_edu <- function() {
   
   return(edu_plot)
 }
+
+tab_chart3 <- tabPanel(
+  titlePanel("CO2 Emissions by Country"),
+  sidebarLayout(
+    sidebarPanel(
+     sliderInput(
+        inputId = "age_choice",
+        label = "Age",
+        min = age_range[1],
+        max = age_range[2],
+        value = age_range)
+    ),
+    mainPanel(
+      plotlyOutput("chart3"),
+    )
+  )
+  
+  
+)
 
