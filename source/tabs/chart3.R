@@ -8,21 +8,27 @@ salaries_raw <- read.csv("https://raw.githubusercontent.com/info201b-au2022/proj
 write.csv(salaries_raw, file = "salary.csv")
 
 
+# stores range of values in age
+age_range <- range(salaries_raw$age)
+
+# sets range slider input
+age_input <- sliderInput(
+  inputId = "age_choice",
+  label = "Age",
+  min = age_range[1],
+  max = age_range[2],
+  value = age_range
+)
+
 # Renders data frame with relevant features and new names for clarity
 
-get_df <- function() {
   salaries_edu <- salaries_raw %>%
     rename(Level.of.Education = education.num) %>%
     select(Level.of.Education, salary, education, sex, age)
   
-  return(salaries_edu)
-}
-
-# Renders plot of salary by level of education
 
 # function to render plot
 plotly_edu <- function() {
-  salaries_edu <- get_df()
   
   org_plot <- ggplot(data = salaries_edu) +
     geom_violin(mapping = aes(
