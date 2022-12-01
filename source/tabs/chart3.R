@@ -2,7 +2,7 @@
 library(ggplot2)
 library(dplyr)
 
-source()
+source("app_server.R")
 
 # load raw data from CSV in data folder
 salaries_raw <- read.csv("https://raw.githubusercontent.com/info201b-au2022/project-redvelvet/main/data/salary.csv", stringsAsFactors = FALSE)
@@ -61,7 +61,7 @@ plotly_edu <- function() {
 }
 
 tab_chart3 <- tabPanel(
-  titlePanel("CO2 Emissions by Country"),
+  titlePanel("Education and Income by Age"),
   sidebarLayout(
     sidebarPanel(
      sliderInput(
