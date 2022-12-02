@@ -22,6 +22,12 @@ age_input <- sliderInput(
   value = age_range
 )
 
+action_reveal <- actionButton("reveal",
+             label = "Reveal Insights",
+             icon("paper-plane"),
+             style = "color: #fff; background-color: #337ab7; border-color: #2e6da4"
+)
+
 # Renders data frame with relevant features and new names for clarity
 get_edu_df <- function() {
   salaries_edu <- salaries_raw %>%
@@ -40,6 +46,7 @@ success. Individuals considering a post-secondary degree should make
 informed decisions about their future. This visualization highlights the 
 correlation between salary and education level, but also clarifies
 the limits of this correlation.")
+  t
 })
 
 
@@ -83,7 +90,13 @@ tab_chart3 <- tabPanel(
         label = "Age",
         min = age_range[1],
         max = age_range[2],
-        value = age_range)
+        value = age_range),
+     actionButton("reveal",
+                  label = "Reveal Insights",
+                  icon("paper-plane"),
+                  style = "color: #fff; background-color: #337ab7; 
+                  border-color: #2e6da4"
+     )
     ),
     mainPanel(
       plotlyOutput("chart3"),
