@@ -1,17 +1,18 @@
 
+
 library(shiny)
 
-source("tabs/summary.R")
-source("tabs/chart1.R")
-source("tabs/chart2.R")
-source("tabs/chart2(2).R")
+# source("tabs/summary.R")
+# source("tabs/chart1.R")
+# source("tabs/chart2.R")
+# source("tabs/chart2(2).R")
 source("tabs/chart3.R")
-source("tabs/table.R")
+# source("tabs/table.R")
 
 
 ui <- navbarPage(
   title = "Income and Relation to Social Categories",
-  position = "fixed-top",
+#  position = "fixed-top",
 
 
   # The project introduction
