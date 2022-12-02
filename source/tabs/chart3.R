@@ -23,16 +23,19 @@ age_input <- sliderInput(
 )
 
 # Renders data frame with relevant features and new names for clarity
-
+get_edu_df <- function() {
   salaries_edu <- salaries_raw %>%
     rename(Level.of.Education = education.num) %>%
     select(Level.of.Education, salary, education, sex, age)
+  return(salaries_edu)
+}
+  
   
 
 # function to render plot
-plotly_edu <- function() {
+plotly_edu <- function(df) {
   
-  org_plot <- ggplot(data = salaries_edu) +
+  org_plot <- ggplot(data = df) +
     geom_violin(mapping = aes(
       x = salary,
       y = Level.of.Education,
@@ -72,10 +75,9 @@ tab_chart3 <- tabPanel(
         value = age_range)
     ),
     mainPanel(
-      plotOutput("chart3"),
+      plotlyOutput("chart3"),
     )
   )
   
   
 )
-
