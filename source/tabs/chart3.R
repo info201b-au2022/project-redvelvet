@@ -30,7 +30,18 @@ get_edu_df <- function() {
   return(salaries_edu)
 }
   
-  
+
+get_insights <- eventReactive(input$reveal, {
+  t <- paste("This plot offers helpful insights into the return on investment of 
+post-secondary education and the impact of education on future outcomes. 
+American post-secondary education is increasingly a luxury. While education and 
+salary outcomes are often correlated, a college degree is not essential for 
+success. Individuals considering a post-secondary degree should make 
+informed decisions about their future. This visualization highlights the 
+correlation between salary and education level, but also clarifies
+the limits of this correlation.")
+})
+
 
 # function to render plot
 plotly_edu <- function(df) {
@@ -76,8 +87,9 @@ tab_chart3 <- tabPanel(
     ),
     mainPanel(
       plotlyOutput("chart3"),
+      textOutput("insights")
     )
   )
   
-  
 )
+
