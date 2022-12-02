@@ -3,6 +3,8 @@
 
 library(shiny)
 
+source("chart3.R")
+
 server <- function(input, output) {
   output$chart3 <- renderPlotly({
     salaries_edu <- get_edu_df()

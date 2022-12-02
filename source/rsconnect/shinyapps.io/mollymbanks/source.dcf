@@ -1,0 +1,13 @@
+name: source
+title: source
+username:
+account: mollymbanks
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 7710342
+bundleId: 6583840
+url: https://mollymbanks.shinyapps.io/source/
+when: 1670017427.1673
+lastSyncTime: 1670017427.16733
+asMultiple: FALSE
+asStatic: FALSE
