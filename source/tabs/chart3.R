@@ -72,7 +72,7 @@ tab_chart3 <- tabPanel(
         value = age_range)
     ),
     mainPanel(
-      plotlyOutput("chart3"),
+      plotOutput("chart3"),
     )
   )
   
