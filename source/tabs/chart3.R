@@ -25,11 +25,11 @@ age_input <- sliderInput(
 )
 
 # creates action button to reveal insights
-action_reveal <- actionButton("reveal",
-  label = "Reveal Insights",
-  icon("paper-plane"),
-  style = "color: #fff; background-color: #337ab7; border-color: #2e6da4"
-)
+#action_reveal <- actionButton("reveal",
+ # label = "Reveal Insights",
+#  icon("paper-plane"),
+  #style = "color: #fff; background-color: #337ab7; border-color: #2e6da4"
+#)
 
 # Renders data frame with relevant features and new names for clarity
 get_edu_df <- function() {
@@ -40,16 +40,16 @@ get_edu_df <- function() {
 }
 
 # renders caption 
-get_capt <- eventReactive(input$capt, {
-  caption <- paste("This plot offers helpful insights into the return on investment of
-post-secondary education and the impact of education on future outcomes.
-American post-secondary education is increasingly a luxury. While education and
-salary outcomes are often correlated, a college degree is not essential for
-success. Individuals considering a post-secondary degree should make
-informed decisions about their future. This visualization highlights the
-correlation between salary and education level, but also clarifies
-the limits of this correlation.")
-})
+#get_capt <- eventReactive(input$capt, {
+ # caption <- paste("This plot offers helpful insights into the return on investment of
+#post-secondary education and the impact of education on future outcomes.
+#American post-secondary education is increasingly a luxury. While education and
+#salary outcomes are often correlated, a college degree is not essential for
+#success. Individuals considering a post-secondary degree should make
+#informed decisions about their future. This visualization highlights the
+#correlation between salary and education level, but also clarifies
+#the limits of this correlation.")
+# })
 
 
 # function to render plot
@@ -93,19 +93,24 @@ tab_chart3 <- tabPanel(
         min = age_range[1],
         max = age_range[2],
         value = age_range
-      ),
-      actionButton(
-        inputId = "capt",
-        label = "Reveal Insights",
-        icon("paper-plane"),
-        style = "color: #fff; background-color: #337ab7;
-                  border-color: #2e6da4"
       )
+      # , actionButton(
+       # inputId = "capt",
+       # label = "Reveal Insights",
+       # icon("paper-plane"),
+      #  style = "color: #fff; background-color: #337ab7;
+       #           border-color: #2e6da4" )
     ),
     mainPanel(
       plotlyOutput("chart3"),
-      hr(),
-      textOutput("caption")
+      p("This plot offers helpful insights into the return on investment of
+        post-secondary education and the impact of education on future outcomes.
+        American post-secondary education is increasingly a luxury. While education and
+        salary outcomes are often correlated, a college degree is not essential for
+        success. Individuals considering a post-secondary degree should make
+        informed decisions about their future. This visualization highlights the
+        correlation between salary and education level, but also clarifies
+        the limits of this correlation.")
     )
   )
 )

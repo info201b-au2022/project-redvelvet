@@ -3,7 +3,6 @@ library(shiny)
 library(plotly)
 
 
-
 server <- function(input, output) {
   output$chart3 <- renderPlotly({
     salaries_edu <- get_edu_df()
@@ -11,9 +10,9 @@ server <- function(input, output) {
            age <= input$age_choice[[2]]) %>% 
       plotly_edu()
 })
-  output$caption <- renderText({
-    get_capt()
-  })
+ # output$caption <- renderText({
+ #   get_capt()
+#  })
   
 }
 
