@@ -1,7 +1,9 @@
 # loads relevant packages
 library(ggplot2)
 library(dplyr)
+library(plotly)
 
+# source relevant file
 source("app_server.R")
 
 # load raw data from CSV in data folder
@@ -22,10 +24,11 @@ age_input <- sliderInput(
   value = age_range
 )
 
+# creates action button to reveal insights
 action_reveal <- actionButton("reveal",
-             label = "Reveal Insights",
-             icon("paper-plane"),
-             style = "color: #fff; background-color: #337ab7; border-color: #2e6da4"
+  label = "Reveal Insights",
+  icon("paper-plane"),
+  style = "color: #fff; background-color: #337ab7; border-color: #2e6da4"
 )
 
 # Renders data frame with relevant features and new names for clarity
@@ -35,24 +38,22 @@ get_edu_df <- function() {
     select(Level.of.Education, salary, education, sex, age)
   return(salaries_edu)
 }
-  
 
-get_insights <- eventReactive(input$reveal, {
-  t <- paste("This plot offers helpful insights into the return on investment of 
-post-secondary education and the impact of education on future outcomes. 
-American post-secondary education is increasingly a luxury. While education and 
-salary outcomes are often correlated, a college degree is not essential for 
-success. Individuals considering a post-secondary degree should make 
-informed decisions about their future. This visualization highlights the 
+# renders caption 
+get_capt <- eventReactive(input$capt, {
+  capt <- paste("This plot offers helpful insights into the return on investment of
+post-secondary education and the impact of education on future outcomes.
+American post-secondary education is increasingly a luxury. While education and
+salary outcomes are often correlated, a college degree is not essential for
+success. Individuals considering a post-secondary degree should make
+informed decisions about their future. This visualization highlights the
 correlation between salary and education level, but also clarifies
 the limits of this correlation.")
-  t
 })
 
 
 # function to render plot
 plotly_edu <- function(df) {
-  
   org_plot <- ggplot(data = df) +
     geom_violin(mapping = aes(
       x = salary,
@@ -60,24 +61,25 @@ plotly_edu <- function(df) {
       fill = salary
     )) +
     scale_x_discrete("Annual Salary",
-                     labels = c("Less than 50k", "Greater than 50k")
+      labels = c("Less than 50k", "Greater than 50k")
     ) +
     scale_y_continuous(
       name = "Level of Education",
-      breaks = c(1, 4, 8, 9, 10, 11, 12, 13, 14, 15, 16),
+      breaks = c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16),
       labels = c(
-        "Pre-school", "Middle School", "Some High School",
-        "High School Diploma", "Some College", "Vocational",
-        "Associates", "Bachelors", "Masters",
+        "Pre-school", "1st-4th Grade", "5th-6th Grade", "7th-8th Grade", 
+        "9th Grade", "10th Grade", "11th Grade", "12th Grade", 
+        "High School Diploma", "Some College", "Vocational Associates Degree",
+        "Academic Associates Degree", "Bachelors", "Masters",
         "Professional", "Doctorate"
       )
     ) +
     labs(title = "Education Impacts on Salary Outcomes") +
     scale_fill_manual(values = c("#49A4B9", "#2C5985")) +
     theme(legend.position = "none")
-  
+
   edu_plot <- ggplotly(org_plot)
-  
+
   return(edu_plot)
 }
 
@@ -85,25 +87,24 @@ tab_chart3 <- tabPanel(
   titlePanel("Education and Income by Age"),
   sidebarLayout(
     sidebarPanel(
-     sliderInput(
+      sliderInput(
         inputId = "age_choice",
         label = "Age",
         min = age_range[1],
         max = age_range[2],
-        value = age_range),
-     actionButton("reveal",
-                  label = "Reveal Insights",
-                  icon("paper-plane"),
-                  style = "color: #fff; background-color: #337ab7; 
+        value = age_range
+      ),
+      actionButton("reveal",
+        label = "Reveal Insights",
+        icon("paper-plane"),
+        style = "color: #fff; background-color: #337ab7;
                   border-color: #2e6da4"
-     )
+      )
     ),
     mainPanel(
       plotlyOutput("chart3"),
       hr(),
-      textOutput("insights")
+      textOutput("capt")
     )
   )
-  
 )
-

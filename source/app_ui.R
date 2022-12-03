@@ -1,6 +1,7 @@
 
-
+# laods relevant packages
 library(shiny)
+library(plotly)
 
 # source("tabs/summary.R")
 # source("tabs/chart1.R")
