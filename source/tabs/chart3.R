@@ -41,7 +41,7 @@ get_edu_df <- function() {
 
 # renders caption 
 get_capt <- eventReactive(input$capt, {
-  capt <- paste("This plot offers helpful insights into the return on investment of
+  caption <- paste("This plot offers helpful insights into the return on investment of
 post-secondary education and the impact of education on future outcomes.
 American post-secondary education is increasingly a luxury. While education and
 salary outcomes are often correlated, a college degree is not essential for
@@ -94,7 +94,8 @@ tab_chart3 <- tabPanel(
         max = age_range[2],
         value = age_range
       ),
-      actionButton("reveal",
+      actionButton(
+        inputId = "capt",
         label = "Reveal Insights",
         icon("paper-plane"),
         style = "color: #fff; background-color: #337ab7;
@@ -104,7 +105,7 @@ tab_chart3 <- tabPanel(
     mainPanel(
       plotlyOutput("chart3"),
       hr(),
-      textOutput("capt")
+      textOutput("caption")
     )
   )
 )
