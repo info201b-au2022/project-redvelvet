@@ -100,6 +100,7 @@ tab_chart3 <- tabPanel(
     ),
     mainPanel(
       plotlyOutput("chart3"),
+      hr(),
       textOutput("insights")
     )
   )
