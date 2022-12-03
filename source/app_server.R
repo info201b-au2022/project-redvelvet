@@ -3,7 +3,7 @@
 
 library(shiny)
 
-source("chart3.R")
+
 
 server <- function(input, output) {
   output$chart3 <- renderPlotly({
