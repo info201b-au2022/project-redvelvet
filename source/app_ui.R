@@ -13,6 +13,8 @@ source("tabs/intro.R")
 
 
 ui <- navbarPage(
+  includeCSS("my_styles.css"),
+  
   title = "Income and Relation to Social Categories",
 #  position = "fixed-top",
 
