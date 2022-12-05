@@ -9,6 +9,7 @@ library(plotly)
 # source("tabs/chart2(2).R")
 source("tabs/chart3.R")
 # source("tabs/table.R")
+source("tabs/intro.R")
 
 
 ui <- navbarPage(
@@ -17,7 +18,7 @@ ui <- navbarPage(
 
 
   # The project introduction
- # tab_panel_intro,
+  intro,
 
   # The three charts
  # chart1,
