@@ -16,4 +16,3 @@ age_graph <- ggplot(data = salaries_age) +
 plot_age <- function(){
   plot(age_graph)
 }
-plot_age()

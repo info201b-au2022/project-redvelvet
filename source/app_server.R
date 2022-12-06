@@ -13,9 +13,11 @@ server <- function(input, output) {
  # output$caption <- renderText({
  #   get_capt()
 #  })
+  output$html_doc<-renderUI({
+    includeHTML("docs/index.html")
+  })
   
 }
-
 
 
 
