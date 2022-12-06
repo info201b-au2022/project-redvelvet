@@ -11,26 +11,6 @@ salaries_raw <- read.csv("https://raw.githubusercontent.com/info201b-au2022/proj
 
 write.csv(salaries_raw, file = "salary.csv")
 
-
-# stores range of values in age
-age_range <- range(salaries_raw$age)
-
-# sets range slider input
-age_input <- sliderInput(
-  inputId = "age_choice",
-  label = "Age",
-  min = age_range[1],
-  max = age_range[2],
-  value = age_range
-)
-
-# creates action button to reveal insights
-#action_reveal <- actionButton("reveal",
- # label = "Reveal Insights",
-#  icon("paper-plane"),
-  #style = "color: #fff; background-color: #337ab7; border-color: #2e6da4"
-#)
-
 # Renders data frame with relevant features and new names for clarity
 get_edu_df <- function() {
   salaries_edu <- salaries_raw %>%
@@ -39,16 +19,16 @@ get_edu_df <- function() {
   return(salaries_edu)
 }
 
-# renders caption 
-#get_capt <- eventReactive(input$capt, {
- # caption <- paste("This plot offers helpful insights into the return on investment of
-#post-secondary education and the impact of education on future outcomes.
-#American post-secondary education is increasingly a luxury. While education and
-#salary outcomes are often correlated, a college degree is not essential for
-#success. Individuals considering a post-secondary degree should make
-#informed decisions about their future. This visualization highlights the
-#correlation between salary and education level, but also clarifies
-#the limits of this correlation.")
+# renders caption
+# get_capt <- eventReactive(input$capt, {
+# caption <- paste("This plot offers helpful insights into the return on investment of
+# post-secondary education and the impact of education on future outcomes.
+# American post-secondary education is increasingly a luxury. While education and
+# salary outcomes are often correlated, a college degree is not essential for
+# success. Individuals considering a post-secondary degree should make
+# informed decisions about their future. This visualization highlights the
+# correlation between salary and education level, but also clarifies
+# the limits of this correlation.")
 # })
 
 
@@ -67,8 +47,8 @@ plotly_edu <- function(df) {
       name = "Level of Education",
       breaks = c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16),
       labels = c(
-        "Pre-school", "1st-4th Grade", "5th-6th Grade", "7th-8th Grade", 
-        "9th Grade", "10th Grade", "11th Grade", "12th Grade", 
+        "Pre-school", "1st-4th Grade", "5th-6th Grade", "7th-8th Grade",
+        "9th Grade", "10th Grade", "11th Grade", "12th Grade",
         "High School Diploma", "Some College", "Vocational Associates Degree",
         "Academic Associates Degree", "Bachelors", "Masters",
         "Professional", "Doctorate"
@@ -84,22 +64,22 @@ plotly_edu <- function(df) {
 }
 
 tab_chart3 <- tabPanel(
-  "Education and Income by Age",
+  titlePanel("Education and Income by Age"),
   sidebarLayout(
     sidebarPanel(
       sliderInput(
         inputId = "age_choice",
         label = "Age",
-        min = age_range[1],
-        max = age_range[2],
-        value = age_range
+        min = 17,
+        max = 89,
+        value = c(17, 89)
       )
       # , actionButton(
-       # inputId = "capt",
-       # label = "Reveal Insights",
-       # icon("paper-plane"),
+      # inputId = "capt",
+      # label = "Reveal Insights",
+      # icon("paper-plane"),
       #  style = "color: #fff; background-color: #337ab7;
-       #           border-color: #2e6da4" )
+      #           border-color: #2e6da4" )
     ),
     mainPanel(
       plotlyOutput("chart3"),
