@@ -64,7 +64,7 @@ plotly_edu <- function(df) {
 }
 
 tab_chart3 <- tabPanel(
-  titlePanel("Education and Income by Age"),
+"Education and Income by Age",
   sidebarLayout(
     sidebarPanel(
       sliderInput(
