@@ -4,7 +4,7 @@ library(shiny)
 library(plotly)
 
 # source("tabs/summary.R")
-# source("tabs/chart1.R")
+ #source("tabs/chart1.R")
 # source("tabs/chart2.R")
 # source("tabs/chart2(2).R")
 source("tabs/chart3.R")
@@ -25,7 +25,7 @@ ui <- navbarPage(
   intro,
 
   # The three charts
- # chart1,
+  #tab_chart1,
  # chart2,
   tab_chart3,
 
