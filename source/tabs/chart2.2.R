@@ -1,5 +1,6 @@
 library(tidyverse)
 library(ggplot2)
+library(plotly)
 data <- read.csv("https://raw.githubusercontent.com/info201b-au2022/project-redvelvet/main/data/salary.csv", stringsAsFactors = FALSE)
 salary_and_gender <- data %>%
   select(sex, salary)
@@ -26,7 +27,27 @@ pie_chart_male <- function(male) {
     theme(
       axis.text = element_blank()
     )
-  return(chart)
+  
+  male_salary_chart <- ggplotly(chart)
+  
+  return(male_salary_chart)
 }
 
-pie_chart_male()
+tab_chart2.2 <- tabPanel(
+  "Difference of Salary between Male and Female", 
+  sidebarLayout(
+    sidebarPanel(
+      inputId = "analysis_var",
+      label = "level of analysis",
+      choices = c("Male", "Female")
+    )
+  ),
+  mainPanel(
+    plotlyOutput("chart2.2"),
+    p("This plot shows the distribution of salary for male in the dataset, we 
+      could see the difference of proportion between salary less than 50k and 
+      Greater than 50k.Compare to female, we could see that male have higher 
+      proportion in greater than 50k compare to female.")
+  )
+)
+
