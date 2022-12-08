@@ -6,41 +6,28 @@ data <- read.csv("https://raw.githubusercontent.com/info201b-au2022/project-redv
 
 source("app_server.R")
 get_df <- function() {
-  
-  salary_and_gender <- data %>%
-    select(sex, salary)
-  
-  return(salary_and_gender)
+  df <- data %>%
+    select(salary, age, sex)
+    return(df)
 }
-
-
-
-#gender <- salary_and_gender$sex
-#num_of_female <- sum(str_count(gender, " Female"))
-#female_data <- filter(salary_and_gender, sex == " Female")
-
-plot_labels <- labs(
-  x = "",
-  y = "",
-  title = "Proportion of female's salary"
-)
-pie_chart <- function(dataframe) {
-  chart <- ggplot(data = dataframe) + 
-    geom_bar(
-      mapping = aes(x = "", y = sex, fill = salary), 
-      stat = "identity",
-      width = 1
-    ) + 
-    coord_polar("y", start = 0) + 
-    plot_labels + 
-    theme(
-      axis.text = element_blank()
-    )
   
-  female_salary_chart <- ggplotly(chart)
+  plotly_box <- function(df) {
+    box_plot <- ggplot(data = df) +
+      geom_boxplot(mapping = aes(
+        x = salary,
+        y = age,
+        fill = salary
+      )) +
+      scale_x_discrete("Annual Salary",
+                       labels = c("Less than 50k", "Greater than 50k")
+      ) +
+      labs(title = "Age and Salary by Gender") +
+      theme(legend.position = "none")
+    boxplot <- ggplotly(box_plot)
+    
+    return(boxplot)
+  }
   
-  return(female_salary_chart)
-}
 
 tab_chart2 <- tabPanel(
   "Difference of Salary between Male and Female", 

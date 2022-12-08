@@ -12,7 +12,7 @@ server <- function(input, output) {
   output$chart2 <- renderPlotly({
   genderdf <- get_df()
   filter(genderdf, sex == input$select) %>%
-    pie_chart()
+    plotly_box()
     
   })
   
