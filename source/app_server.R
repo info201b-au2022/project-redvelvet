@@ -6,7 +6,7 @@ server <- function(input, output) {
   # assigns chart1 output
   output$chart1 <- renderPlotly({
     hoursdf <- get_age_df()
-    filter(hoursdf, hours.per.week == input$hours_choice) %>% plotly_age()
+    filter(hoursdf, hours.per.week >= input$hours_choice) %>% plotly_age()
   })
 
   # assigns chart2 output
