@@ -8,11 +8,8 @@ source("app_server.R")
 
 # read data into chart
 data <- read.csv("https://raw.githubusercontent.com/info201b-au2022/project-redvelvet/main/data/salary.csv", stringsAsFactors = FALSE)
-<<<<<<< HEAD
+
 write.csv(data, file = "salary.csv")
-=======
-# write.csv(salaries_raw, file = "salary.csv")
->>>>>>> 280ef4657cc281e747a00363a64a698f5ee4a5e7
 
 # sets function to call ds
 get_df <- function() {
@@ -33,6 +30,7 @@ plotly_box <- function(df) {
       labels = c("Less than 50k", "Greater than 50k")
     ) +
     labs(title = "Age and Salary by Gender") +
+    ylab("Age") +
     theme(legend.position = "none")
   boxplot <- ggplotly(box_plot)
 

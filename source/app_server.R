@@ -1,7 +1,6 @@
 # loads relevant packages
 library(shiny)
 library(plotly)
-salaries <- read.csv("https://raw.githubusercontent.com/info201b-au2022/project-redvelvet/main/data/salary.csv", stringsAsFactors = FALSE)
 
 server <- function(input, output) {
   # assigns chart1 output
