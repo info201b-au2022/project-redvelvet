@@ -8,7 +8,7 @@ source("app_server.R")
 
 # read data into chart
 data <- read.csv("https://raw.githubusercontent.com/info201b-au2022/project-redvelvet/main/data/salary.csv", stringsAsFactors = FALSE)
-write.csv(salaries_raw, file = "salary.csv")
+write.csv(data, file = "salary.csv")
 
 # sets function to call ds
 get_df <- function() {
@@ -48,9 +48,10 @@ tab_chart2 <- tabPanel(
     ),
     mainPanel(
       plotlyOutput("chart2"),
-      p("This plot shows the distribution of salary for female in the dataset, we
+      p("This plot shows the distribution of salary by age in the dataset, we
       could see the difference of proportion between salary less than 50k and
-      Greater than 50k.")
+      Greater than 50k. As you filter for gender, you can see the impacts of 
+        the pay gap as they relate to age.")
     )
   )
 )

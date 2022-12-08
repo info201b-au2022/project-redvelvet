@@ -26,7 +26,6 @@ ui <- navbarPage(
   tab_chart3,
 
   # The project report
-
   conclusion,
   report
 )
