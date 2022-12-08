@@ -21,7 +21,7 @@ server <- function(input, output) {
     filter(salaries_edu, age >= input$age_choice[[1]], 
            age <= input$age_choice[[2]]) %>% 
       plotly_edu()
-})
+  })
 
   output$html_doc<-renderUI({
     includeHTML("docs/index.html")

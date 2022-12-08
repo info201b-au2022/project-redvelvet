@@ -27,7 +27,6 @@ ui <- navbarPage(
   # The three charts
   tab_chart1,
   tab_chart2,
-  #tab_chart2_2,
   tab_chart3,
 
 
