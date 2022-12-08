@@ -7,13 +7,13 @@ library(plotly)
 source("app_server.R")
 
 # load raw data from CSV in data folder
-salaries_raw <- read.csv("https://raw.githubusercontent.com/info201b-au2022/project-redvelvet/main/data/salary.csv", stringsAsFactors = FALSE)
+salaries <- read.csv("https://raw.githubusercontent.com/info201b-au2022/project-redvelvet/main/data/salary.csv", stringsAsFactors = FALSE)
 
-write.csv(salaries_raw, file = "salary.csv")
+write.csv(salaries, file = "salary.csv")
 
 # Renders data frame with relevant features and new names for clarity
 get_edu_df <- function() {
-  salaries_edu <- salaries_raw %>%
+  salaries_edu <- salaries %>%
     rename(Level.of.Education = education.num) %>%
     select(Level.of.Education, salary, education, sex, age)
   return(salaries_edu)
