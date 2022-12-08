@@ -5,20 +5,27 @@ library(shiny)
 data <- read.csv("https://raw.githubusercontent.com/info201b-au2022/project-redvelvet/main/data/salary.csv", stringsAsFactors = FALSE)
 
 source("app_server.R")
+get_df <- function() {
+  
+  salary_and_gender <- data %>%
+    select(sex, salary)
+  
+  return(salary_and_gender)
+}
 
-salary_and_gender <- data %>%
-  select(sex, salary)
-gender <- salary_and_gender$sex
-num_of_female <- sum(str_count(gender, " Female"))
-female_data <- filter(salary_and_gender, sex == " Female")
+
+
+#gender <- salary_and_gender$sex
+#num_of_female <- sum(str_count(gender, " Female"))
+#female_data <- filter(salary_and_gender, sex == " Female")
 
 plot_labels <- labs(
   x = "",
   y = "",
   title = "Proportion of female's salary"
 )
-pie_chart_female <- function(female) {
-  chart <- ggplot(data = female_data) + 
+pie_chart <- function(dataframe) {
+  chart <- ggplot(data = salary_df) + 
     geom_bar(
       mapping = aes(x = "", y = sex, fill = salary), 
       stat = "identity",
@@ -35,19 +42,23 @@ pie_chart_female <- function(female) {
   return(female_salary_chart)
 }
 
-tab_chart2_1 <- tabPanel(
+tab_chart2 <- tabPanel(
   "Difference of Salary between Male and Female", 
   sidebarLayout(
     sidebarPanel(
-      inputId = "analysis_var",
-      label = "level of analysis",
-      choices = c("Male", "Female")
+      radioButtons(
+        inputId = "select",
+        label = "Gender",
+        choices = c("Male", "Female")
+      )
+     
     )
-  ),
-  mainPanel(
-    plotlyOutput("chart2.1"),
-    p("This plot shows the distribution of salary for female in the dataset, we 
+    ,
+    mainPanel(
+      plotlyOutput("chart2"),
+      p("This plot shows the distribution of salary for female in the dataset, we 
       could see the difference of proportion between salary less than 50k and 
       Greater than 50k.")
+  )
   )
 )

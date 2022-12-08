@@ -9,6 +9,13 @@ server <- function(input, output) {
     filter(workclassdf, hours.per.week == input$age_choice) %>% plotly_age()
   })
   
+  output$chart2 <- renderPlotly({
+  genderdf <- get_df()
+  filter(genderdf, sex == input$select) %>%
+    pie_chart()
+    
+  })
+  
   output$chart3 <- renderPlotly({
     salaries_edu <- get_edu_df()
     filter(salaries_edu, age >= input$age_choice[[1]], 
