@@ -7,7 +7,14 @@ source("app_server.R")
 # loading data from CSV in data folder
 salaries <- read.csv("https://raw.githubusercontent.com/info201b-au2022/project-redvelvet/main/data/salary.csv", stringsAsFactors = FALSE)
 
-salaries_age <- salaries %>% select(age, salary, workclass)
+# calls data frame
+get_age_df <- function() {
+ 
+  salaries_age <- salaries %>% select(age, salary, workclass)
+  
+  return(salaries_age)
+}
+
 
 # Defining the widgets that the user can interact with 
 y_input <- selectInput("y_var",
