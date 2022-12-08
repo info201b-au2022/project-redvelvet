@@ -5,8 +5,7 @@ salaries <- read.csv("https://raw.githubusercontent.com/info201b-au2022/project-
 
 server <- function(input, output) {
   output$chart1 <- renderPlotly({
-    salaries_work <- salaries %>% select(age, salary, workclass)
-      plotly_age(salaries_work)
+  filter(input$y_var) %>% plotly_age()
   })
   
   output$chart3 <- renderPlotly({

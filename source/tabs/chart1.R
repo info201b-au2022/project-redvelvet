@@ -20,7 +20,7 @@ plotly_age <- function(df){
   age_plot <- ggplot(data = df) +
     geom_bar(aes(x = salary, fill = age)) +
     scale_x_discrete("Annual Salary", labels = c("Less than 50k", "Greater than 50k")) +
-    scale_y_continuous(name = "Age Vs Salary", breaks = c(5000, 10000, 15000, 20000, 25000),
+    scale_y_continuous(name = "Age", breaks = c(5000, 10000, 15000, 20000, 25000),
                        labels = c("20", "30", "40", "50", "60"))
   
   salary_age_plot <- ggplotly(age_plot)
