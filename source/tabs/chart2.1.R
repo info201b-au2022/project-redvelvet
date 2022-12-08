@@ -25,7 +25,7 @@ plot_labels <- labs(
   title = "Proportion of female's salary"
 )
 pie_chart <- function(dataframe) {
-  chart <- ggplot(data = salary_df) + 
+  chart <- ggplot(data = dataframe) + 
     geom_bar(
       mapping = aes(x = "", y = sex, fill = salary), 
       stat = "identity",
