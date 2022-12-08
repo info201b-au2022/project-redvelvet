@@ -18,10 +18,9 @@ get_age_df <- function() {
 
 plotly_age <- function(df){
   age_plot <- ggplot(data = df) +
-    geom_bar(aes(x = salary, fill = age)) +
+    geom_bar(aes(x = salary, fill = hours.per.week)) +
     scale_x_discrete("Annual Salary", labels = c("Less than 50k", "Greater than 50k")) +
-    scale_y_continuous(name = "Age", breaks = c(5000, 10000, 15000, 20000, 25000),
-                       labels = c("20", "30", "40", "50", "60"))
+    scale_y_continuous(name = "Hours Per Week")
   
   salary_age_plot <- ggplotly(age_plot)
   
@@ -29,22 +28,21 @@ plotly_age <- function(df){
 }
 
 tab_chart1 <- tabPanel(
-  "Age and Salary by Workclass",
+  "Hours Per Week and Salary by Age",
   sidebarLayout(
     sidebarPanel(
       sliderInput(
-      inputId = "hours_choice",
-      label = "Hours",
-      min = 1,
-      max = 99,
-      value = 40
+      inputId = "age_choice",
+      label = "Age",
+      min = 17,
+      max = 89,
+      value = 17
     )
     ),
     mainPanel(
       plotlyOutput("chart1"),
-      p("This plot allows us to graph the variation in Salary among surveyed individuals in this study, and categorize by type of employment. 
-        Doing this, gives us an insight into how these different types of employment cause variation in income, and by what level. 
-        Furthermore, one can use this data to gain knowledge on different types of employment, and shift their aims and goals based on their desire to earn a specific way.")
+      p("The original plot helps trend Hours Per week with Annual Salary. This will allow the users to view how much effort can result in what level of a salary, encouraging hard work.
+        Furthermore, selecting by age can show these trends by age group which will allow the viewers to get an idea of how much effort their age group peers are inputting into their work.")
     )
   )
 )
