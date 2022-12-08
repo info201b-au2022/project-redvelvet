@@ -15,5 +15,5 @@ intro <- tabPanel(
   h3("Problem Domain"),
   p("Much of the sources of inequality of these variables of identity has its origins in built systems. Systematic inequality and the combination of implicit bias disadvantages underprivileged individuals further from easily achieving higher salary outcomes compared to their privileged peers. When considering these outcomes and intersections of variables, these barriers that have been systematically put into place should be considered and kept in conversation throughout the analysis of this research."),
   h3("Key Findings"),
-  p("")
+  p("Each of the different tabs above investigates the relationships and correlations between identity and salary. Our first graph suggests that there might be an association with higher salary and age, though it is indeed questionable at times. Our second graph suggests a positive correlation with level of education and salary, though it is clarified that at a point the correlation becomes obsolete to the point that it really doesn't matter.")
 )
