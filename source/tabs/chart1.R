@@ -10,17 +10,10 @@ salaries <- read.csv("https://raw.githubusercontent.com/info201b-au2022/project-
 # calls data frame
 get_age_df <- function() {
  
-  salaries_age <- salaries %>% select(age, salary, workclass)
+  salaries_age <- salaries 
   
   return(salaries_age)
 }
-
-
-# Defining the widgets that the user can interact with 
-y_input <- selectInput("y_var",
-                       label = "Type of Employment",
-                       choices = c("Private", "Federal-gov", "Local-gov"),
-                       selected = "Private")
 
 
 plotly_age <- function(df){
@@ -38,7 +31,15 @@ plotly_age <- function(df){
 tab_chart1 <- tabPanel(
   "Age and Salary by Workclass",
   sidebarLayout(
-    sidebarPanel(y_input),
+    sidebarPanel(
+      sliderInput(
+      inputId = "hours_choice",
+      label = "Hours",
+      min = 1,
+      max = 99,
+      value = 40
+    )
+    ),
     mainPanel(
       plotlyOutput("chart1"),
       p("This plot allows us to graph the variation in Salary among surveyed individuals in this study, and categorize by type of employment. 
