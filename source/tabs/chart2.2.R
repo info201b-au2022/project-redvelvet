@@ -33,7 +33,7 @@ pie_chart_male <- function(male) {
   return(male_salary_chart)
 }
 
-tab_chart2.2 <- tabPanel(
+tab_chart2_2 <- tabPanel(
   "Difference of Salary between Male and Female", 
   sidebarLayout(
     sidebarPanel(

@@ -11,6 +11,7 @@ salary_and_gender <- data %>%
 gender <- salary_and_gender$sex
 num_of_female <- sum(str_count(gender, " Female"))
 female_data <- filter(salary_and_gender, sex == " Female")
+
 plot_labels <- labs(
   x = "",
   y = "",
@@ -34,7 +35,7 @@ pie_chart_female <- function(female) {
   return(female_salary_chart)
 }
 
-tab_chart2.1 <- tabPanel(
+tab_chart2_1 <- tabPanel(
   "Difference of Salary between Male and Female", 
   sidebarLayout(
     sidebarPanel(
