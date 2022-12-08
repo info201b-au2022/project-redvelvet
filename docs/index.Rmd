@@ -17,8 +17,7 @@ source("../source/tabs/chart3.R")
 source("../source/tabs/summary.R")
 source("../source/tabs/table.R")
 source("../source/tabs/chart1.R")
-source("../source/tabs/chart2.R")
-source("../source/tabs/chart2(2).R")
+source("../source/tabs/chart2.1.R")
 ```
 # Dynamic Paragraph
 The origin of the data comes from Census information from those from the United States. In total there were `r get_total_participants()` participants and datapoints that detail each category that make up an identity were: `r colnames(salaries_raw)`. The three main intersections we were going to the look at is age, education level, and country of origin and their resulting salary level. The ages span from `r get_min_age()` years old to `r get_max_age()` years old, a diverse range of individuals. The education spans from `r get_min_education()` to `r get_max_education()`, thus representing every level of education imaginable. Gender provides a unique perspective as well. Overall, the data available is diverse and provides a population that gives insightful information on the complexities of salary and identity.
@@ -28,30 +27,46 @@ The origin of the data comes from Census information from those from the United 
 library(knitr)
 kable(get_table(), caption = "Salary vs Identity Table")
 ```
+
 The table breaks down further where each category of individual fits on the salary spectrum. It delves into the education, age and gender to be able to numerically represent the population. We decided to focus on the sum individuals in each category to provide a better visualization of the span of concentration throughout each category. It provides a closer look at the dispersion of the population, for example it emphasizes that what potentially plays a bigger factor is the age and gender; where the younger participants and those that male identifying had higher salaries than those not in these groups.
 
 # Plots
 
 ## Salary and Age 
 ```{r age, echo=FALSE, message=FALSE, warning=FALSE}
-plot_age()
+plotly_age(get_age_df())
 ```
+
 This plot maps the trend between Age and Salary among the data set members. This provides important information by showing us what salary one could potentially expect at a specific age. Furthermore, it can show us how well a more well educated demographic (younger) is comparing to older generations, and how the economy is changing in today's day and age. This is even more important with start-ups, because younger people tend to be more involved in them.
-<<<<<<< HEAD
+
 ## Salary and Gender 
-```{r age, echo=FALSE, message=FALSE, warning=FALSE}
-pie_chart_female()
-```
-```{r age, echo=FALSE, message=FALSE, warning=FALSE}
-pie_chart_male()
+```{r gender, echo=FALSE, message=FALSE, warning=FALSE}
+plotly_box(get_df())
 ```
 
 This chart shows the difference of gender that affect the salary. It is important to know the difference of salary between male and female, especially nowadays, people are seeking for equal rights between female and male, salary is one of those. But from the chart we could see that the percentages of females have salary below 50k is more than the percentage of males below 50k, and it is the same for salary over 50k.
-=======
->>>>>>> ae9130d06343996f3b1cdaffd258df6638eacaeb
+
 ## Education and Occupation 
 ```{r education, echo=FALSE, message=FALSE, warning=FALSE}
-plot_edu()
+plotly_edu(get_edu_df())
 ```
 
 This plot offers helpful insights into the return on investment of post-secondary education and the impact of education on future outcomes. American post-secondary education is increasingly a luxury. While education and salary outcomes are often correlated, a college degree is not essential for success. Individuals considering a post-secondary degree should make informed decisions about their future. This visualization highlights the correlation between salary and education level, but also clarifies the limits of this correlation.  
+
+# Findings
+
+The first chart puts age and salary into comparison, delving further into the hours of employments and its associations with the former variables. There seems, however, to be a potential disconnect with age and salary correlation. At no point does the age have more people making more then 50,000, while increasing the age along the slider it can be seen that the difference becomes increasingly smaller however. At 65 years old, there are 92 more people making less than 50,000 than more than 50,000. Salary and age can be potentially linked because of the steady correlation of the difference as the age of the individual increases, but it is never a sure sign that there is a positive association between age and salary.
+
+The second chart investigates the relationship between gender and salary, simultaneously comparing them with their respective ages. Comparing the two binary gender we had in our data set doesn't yield much different. Flipping the widget between the two doesn't yield much difference, they're so closely related that they are virtually the same. The mean age for males below 50,000 was 35 years old and above 50,000 was 44 years old, the mean age for females in comparison below 50,000 was 34 years old and above $50,000 was 41 years old. Since these values are so similar, it emphasizes the fact there is no clear sign of correlation between gender and salary.
+
+The third chart investigates the education impacts on salary outcomes, bringing age into the mix as well. With maintaining the original range and seeing all of the ages represented on the chart, there seems to be a relatively positive correlation with level of education and salary. To a point there seems to be a correlation where higher level of education results in higher salaries, lower level of education to lower salaries. Though this should all be taken to a fault because there is obvious outliers and places where these correlations bleed together. For example, those that got a bachelors 3134 people got below 50,000 salary and 2221 people got above 50,000 salary. Even some of those that went to a higher level education weren't able to get paid better than their peers that went on the same path. Due to these semi-inequivalent outcomes, it becomes increasingly difficult to make an informed conclusion on whether higher education means higher salary and would require more research to make a final decision.
+
+# Discussion
+Our project examines the aspects of a person that influence their resulting salary. We delve into the influences of education, age, and gender, seeking answers to these questions: What effect does an individuals level of education have? What effect does an individuals age have? What effect do gender disparities have? The main purpose of this research is looking for possible inequalities among these intersections between salary and these three identities. This data does not provide a answer with finality because correlations never correspond to causations or ever have solid ties to realities, we respect the ideas of any and all confounding variables that may be affecting these resulting patterns. Thus the purpose is to provide a springboard for curiosity and further questioning of the world around us.
+
+Much of the sources of inequality of these variables of identity has its origins in built systems. Systematic inequality and the combination of implicit bias disadvantages underprivileged individuals further from easily achieving higher salary outcomes compared to their privileged peers. When considering these outcomes and intersections of variables, these barriers that have been systematically put into place should be considered and kept in conversation throughout the analysis of this research.
+
+The importance of this research stems from the need to break down some of these destigmatiziations toward these identities of a person. Breaking down that everyone is a unique person and not a single individual aspect of themselves will result in the reassured promise of a comfortable living salary. The analysis that we have done with the data shows that these correlations only hold to a fault, swearing by these associations can be detrimental for individuals that may give up when they are reminded again and again that they do not equivalate their opposite. Creating this idea of superiority and inferiority idea around certain aspects of a person is small minded and overall rather toxic. Emphasizing the fact that not any aspect of person promises anything is important, especially when time is taken to further analyze these visualizations.
+
+# Conclusion
+Our project centers around finding correlations between identity and salary to better communicate any magnified inequalities in the job sector. We selected the key identity variables of age, education level, and gender in our investigation, letting these meld together in our data visualizations to communicate even more possible intersections. With the wealth of information that is being communicated through our charts, it is important to remember the magnitude of these findings and acknowledge that correlation doesn't always equal causation. These plot points, bars, and pie charts do not act in finality, they allow for conversation and acknowledge of anything that may be unrelated in its totality. The information that we investigated provide some clarity on the impacts different facets of identity have when considering the salary of individuals. It has also proved that these are not defining gateways to getting paid the most amount of money. There are obvious shortfalls, underlying confounding variables, and lack of data to totally rely on the analysis done through these visualizations. I think it would be easy for someone to take advantage of our findings and use it as a laundry list in things they have to fulfill or else it wouldn't be worth it. There is a decent amount of naivety in this way of thinking, taking these miniscule variables that make up a wealth amount of people and deeming some qualities potentially more advantageous than the other is short sighted and not very considerate. Seeing this analysis in this way is detrimental of the development and hope of people that might need this information the most. Remaining cognizant of the impact this analysis can have on marginalized groups that may fit in the categories of not being able to make a certain amount of money because of the systematic powers working against them. The goal of this assignment wasn't necessarily meant to bring distress or even hope, it was to start conversations, see the extent these characteristics correlate with each other. We hope that in reading through this information it encourages questions and conversations on further things that can correlate to each other and the opportunity to continue the conversation.
