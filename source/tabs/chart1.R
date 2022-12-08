@@ -32,7 +32,7 @@ tab_chart1 <- tabPanel(
   sidebarLayout(
     sidebarPanel(
       sliderInput(
-      inputId = "age_choice",
+      inputId = "hours_choice",
       label = "Age",
       min = 17,
       max = 89,
