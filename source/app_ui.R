@@ -5,7 +5,7 @@ library(plotly)
 
 # source("tabs/summary.R")
 source("tabs/chart1.R")
-# source("tabs/chart2.1.R")
+ source("tabs/chart2.1.R")
 # source("tabs/chart2.2.R")
 source("tabs/chart3.R")
 # source("tabs/table.R")
